@@ -1,0 +1,44 @@
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+</head>
+
+<div class="container">
+  <h3>Edit this pet</h3>
+
+  <div *ngIf="creationErrors">
+    <p *ngIf="creationErrors.errors.name" style="color:purple">{{creationErrors.errors.name.message}}</p>
+    <p *ngIf="creationErrors.errors.type" style="color:purple">{{creationErrors.errors.type.message}}</p>
+    <p *ngIf="creationErrors.errors.description" style="color:purple">{{creationErrors.errors.description.message}}</p>
+  </div>
+
+  <form>
+    <div class="form-group">
+      <label>Pet Name</label>
+      <input type="text" [value]="myPet.name" class="form-control" name="name" [(ngModel)]="myPet.name" /><br>
+    </div>
+    <div class="form-group">
+      <label>Pet Type</label>
+      <input type="text" [value]="myPet.type" class="form-control" name="type" [(ngModel)]="myPet.type" /><br>
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <input type="text" [value]="myPet.description" class="form-control" name="description" [(ngModel)]="myPet.description" /><br>
+    </div>
+    <label>Skills:</label>
+    <div style="margin-left:50px" class="form-group">
+      <p>Skill1:</p><input type="text" [value]="myPet.skills[0].skill1" class="form-control" name="skill1" [(ngModel)]="myPet.skills[0].skill1" /><br>
+    </div>
+    <div style="margin-left:50px" class="form-group">
+      <p>Skill2:</p><input type="text" class="form-control" [value]="myPet.skills[0].skill2" name="skill2" [(ngModel)]="myPet.skills[0].skill2" /><br>
+    </div>
+    <div style="margin-left:50px" class="form-group">
+      <p>Skill3:</p><input type="text" class="form-control" [value]="myPet.skills[0].skill3" name="skill3" [(ngModel)]="myPet.skills[0].skill3" /><br>
+    </div>
+
+    <button style="margin-right:15px" class="btn btn-primary" (click)="updatePet()">Edit pet</button>
+    <button class="btn btn-primary" (click)="goList()">Cancel</button>
+  </form>
+</div>
+<br>
+<br>

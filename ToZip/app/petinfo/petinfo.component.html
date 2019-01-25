@@ -1,0 +1,18 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous">
+  </head>
+<div class="container">
+<a [routerLink]="['/pets']" ng-href="/pets">Home</a>
+
+<h3 style="font-weight: bold">Details about {{myPet.name}}</h3>
+<h3><span style="font-weight: bold">Pet Type:</span> {{myPet.type}}</h3>
+<h3><span style="font-weight: bold">Description:</span> {{myPet.description}}</h3>
+<h3><span style="font-weight: bold">Skills:</span> <span *ngIf="myPet.skills[0].skill1!=''" >{{myPet.skills[0].skill1}}</span></h3>
+<h3 style="margin-left:80px" *ngIf="myPet.skills[0].skill2!=''">{{myPet.skills[0].skill2}}</h3>
+<h3 style="margin-left:80px" *ngIf="myPet.skills[0].skill3!=''">{{myPet.skills[0].skill3}}</h3>
+<h3><span style="font-weight: bold">Likes:</span> {{myPet.likes}}</h3>
+
+<button *ngIf="liked==false" style="margin-right:15px" class="btn btn-primary" (click)="likePet()">Like this pet</button>
+<button class="btn btn-primary" (click)="adoptPet()">Adopt this pet!</button>
+</div>
